@@ -1,0 +1,230 @@
+/* ======================= GLOBAL STYLES ======================= */
+body {
+    font-family: "Noto Sans", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+
+p {
+    margin: 1.5em 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: Arial, sans-serif;
+}
+
+.gif{
+        /* background-image: url('assets/bot.png'); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      
+}
+/* ======================= HERO SECTION ======================= */
+#hero {
+    text-align: center;
+}
+
+#hero h1 {
+    margin: 0 0 0.15em;
+    font-size: 4.5em;
+    margin-right: 14%;
+}
+
+#hero .text {
+    max-width: 680px;
+}
+
+.bubble {
+    max-width: 1050px;
+    margin: 40px auto;
+    padding: 35px;
+    background-color: #b9e3f5;
+    border-radius: 0px 80px 0px 80px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Text and Image Layout */
+.text-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.text {
+    max-width: 60%;
+    text-align: left;
+}
+
+.image {
+    max-width: 40%;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* ======================= INFO SECTION ======================= */
+.info-section {
+    background-color: #d4ebf9;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bubble h1,
+.bubble h2 {
+    font-size: 2rem;
+    color: #53a8f7;
+    margin-bottom: 15px;
+}
+
+.bubble p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    padding: 10px;
+}
+
+/* ======================= CONTENT CONTAINER ======================= */
+.content-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+/* Box Styling */
+.box {
+    width: 50%;
+    padding: 30px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Column: Light Theme */
+.light-box {
+    border-radius: 60px 60px 0px 60px;
+    background-color: #e3f2fd;
+    color: #0277bd;
+}
+
+/* Right Column: Dark Theme */
+.dark-box {
+    border-radius: 0px 60px 60px 60px;
+    margin-top: 10%;
+    background-color: #42a5f5;
+    color: white;
+}
+
+/* Headings */
+h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ======================= BUTTONS & LINKS ======================= */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #7eb5f5;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #47a1f5;
+}
+
+.bubble a {
+    color: #55585d;
+    text-decoration: none;
+}
+
+.bubble a:hover {
+    text-decoration: underline;
+}
+
+.conditions-list a,
+.article-list a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #01579b;
+}
+
+.article-list a {
+    color: white;
+}
+
+.article-list li {
+    margin-bottom: 8px;
+}
+
+/* ======================= RESPONSIVE DESIGN ======================= */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .text-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .text, .image {
+        max-width: 100%;
+    }
+
+    /* Bubble Section */
+    .bubble {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .bubble h1, .bubble h2 {
+        font-size: 1.8rem;
+    }
+
+    .bubble p {
+        font-size: 1rem;
+    }
+
+    /* Content Container */
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .bubble {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .bubble h1, .bubble h2 {
+        font-size: 1.5rem;
+    }
+
+    .bubble p {
+        font-size: 0.9rem;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+

@@ -1,0 +1,99 @@
+<header>
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="/src/app/components/body/body.component.html"></a>
+        <img src="assets/image.png" alt="Mental Health Logo" />
+        <!-- <span>MindSage</span> -->
+      </div>
+  
+      <!-- Desktop Navigation -->
+      <ul class="nav-links" [ngClass]="{ 'nav-active': isMobileMenuOpen }">
+        <li (mouseover)="showDropdown('home')" (mouseleave)="hideDropdown('home')">
+          <a href="#" (click)="toggleDropdown('home')">Home</a>
+          <ul class="sub-menu" [ngClass]="{ 'show': activeDropdown === 'home' }">
+            <li><a href="/src/app/components/body/body.component.html"></a></li>
+            <li><a href="#">Home Submenu 2</a></li>
+            <li><a href="#">Home Submenu 3</a></li>
+          </ul>
+        </li>
+  
+        <li (mouseover)="showDropdown('about')" (mouseleave)="hideDropdown('about')">
+          <a href="#" (click)="toggleDropdown('about')">About</a>
+          <ul class="sub-menu" [ngClass]="{ 'show': activeDropdown === 'about' }">
+            <li><a href="#">About Submenu 1</a></li>
+            <li><a href="#">About Submenu 2</a></li>
+            <li><a href="#">About Submenu 3</a></li>
+          </ul>
+        </li>
+  
+        <li (mouseover)="showDropdown('services')" (mouseleave)="hideDropdown('services')">
+          <a href="#" (click)="toggleDropdown('services')">Services</a>
+          <ul class="sub-menu" [ngClass]="{ 'show': activeDropdown === 'services' }">
+            <li><a href="#">Service Submenu 1</a></li>
+            <li><a href="#">Service Submenu 2</a></li>
+            <li><a href="#">Service Submenu 3</a></li>
+          </ul>
+        </li>
+  
+        <li (mouseover)="showDropdown('contact')" (mouseleave)="hideDropdown('contact')">
+          <a href="#" (click)="toggleDropdown('contact')">Contact</a>
+          <ul class="sub-menu" [ngClass]="{ 'show': activeDropdown === 'contact' }">
+            <li><a href="#">Contact Submenu 1</a></li>
+            <li><a href="#">Contact Submenu 2</a></li>
+            <li>
+              <button routerLink="/report-generator">Report</button>
+            </li>
+          </ul>
+        </li>
+
+        <li (mouseover)="showDropdown('report')" (mouseleave)="hideDropdown('report')">
+          <a routerlink="/report">Report</a>
+                    <!-- <ul class="sub-menu" [ngClass]="{ 'show': activeDropdown === 'report' }">
+            <li><a href="#">Service Submenu 1</a></li>
+            <li><a href="#">Service Submenu 2</a></li>
+            <li><a href="#">Service Submenu 3</a></li>
+          </ul> -->
+        </li>
+      </ul>
+  
+      <!-- Mobile Menu Toggle Button -->
+      <button class="menu-toggle" (click)="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+  
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-menu" [ngClass]="{ 'open': isMobileMenuOpen }">
+      <ul>
+        <li><a href="#" (click)="toggleDropdown('home')">Home</a></li>
+        <ul *ngIf="activeDropdown === 'home'" class="sub-menu-mobile">
+          <li><a href="#">Home Submenu 1</a></li>
+          <li><a href="#">Home Submenu 2</a></li>
+          <li><a href="#">Home Submenu 3</a></li>
+        </ul>
+  
+        <li><a href="#" (click)="toggleDropdown('about')">About</a></li>
+        <ul *ngIf="activeDropdown === 'about'" class="sub-menu-mobile">
+          <li><a href="#">About Submenu 1</a></li>
+          <li><a href="#">About Submenu 2</a></li>
+          <li><a href="#">About Submenu 3</a></li>
+        </ul>
+  
+        <li><a href="#" (click)="toggleDropdown('services')">Services</a></li>
+        <ul *ngIf="activeDropdown === 'services'" class="sub-menu-mobile">
+          <li><a href="#">Service Submenu 1</a></li>
+          <li><a href="#">Service Submenu 2</a></li>
+          <li><a href="#">Service Submenu 3</a></li>
+        </ul>
+  
+        <li><a href="#" (click)="toggleDropdown('contact')">Contact</a></li>
+        <ul *ngIf="activeDropdown === 'contact'" class="sub-menu-mobile">
+          <li><a href="#">Contact Submenu 1</a></li>
+          <li><a href="#">Contact Submenu 2</a></li>
+          <li><a href="#">Contact Submenu 3</a></li>
+        </ul>
+      </ul>
+    </div>
+  </header>
+  

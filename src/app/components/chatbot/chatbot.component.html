@@ -1,0 +1,39 @@
+<!-- Floating Chatbot Button -->
+<div class="chatbot-button" (click)="toggleChat()">
+  <img src="assets/chat-bot.png" alt="Chatbot Icon" />
+</div>
+
+<!-- Chat Container -->
+<div class="chat-container" [ngClass]="{ 'open': isChatOpen }">
+  <!-- Chatbot Header -->
+  <div class="chat-header">
+    <img src="assets/icon_bot.png" class="chat-icon" alt="Chatbot Icon" />
+    <h4>MindSage</h4>
+    <div *ngIf="hasUserSentMessage" class="download-button" id="sample">
+      <button (click)="generateReport()"> Report</button>
+    </div>
+    <button class="close-btn" (click)="toggleChat()">✖</button>
+  </div>
+
+  <!-- Chat Window -->
+  <div class="chat-window">
+    <div *ngFor="let msg of messages" class="message" [ngClass]="{ 'user': msg.author === 'user', 'bot': msg.author === 'bot' }">
+      <img *ngIf="msg.author === 'bot'" src="assets/logo_head_blk.png" class="avatar" />
+      <p>{{ msg.text }}</p>
+    </div>
+  </div>
+
+  <!-- Chat Input with Speech-to-Text -->
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="userMessage" placeholder="Type your message..." (keyup.enter)="sendMessage()" />
+    
+    <!-- Mic Button -->
+    <button class="mic-btn" [ngClass]="{ 'recording': isRecording }" (click)="toggleMic()">
+      <span *ngIf="isRecording">🎙️</span>
+      <span *ngIf="!isRecording">🎤</span>
+    </button>
+
+    <!-- Send Button -->
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

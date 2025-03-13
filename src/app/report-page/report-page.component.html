@@ -1,0 +1,91 @@
+<div class="report-page">
+    <h2>Report Page</h2>
+
+    <!-- Buttons for Chat History and Report Generation -->
+    <div class="button-container">
+        <button (click)="loadChatHistory()">Chat History</button>
+        <button (click)="generateReport()">Report Generation</button>
+    </div>
+
+    <!-- Emotion Speedometer -->
+    <div class="emotion-speedometer">
+        <h3>Emotion Analysis</h3>
+        <!-- [foregroundColor]="['#ff0000', '#ff9900', '#ffff00', '#00ff00']" -->
+
+        <ngx-gauge 
+        [value]="gaugeValue" 
+        [min]="0" 
+        [max]="100"
+        [type]="'semi'"
+        [cap]="'round'"
+        [thick]="10"
+        [label]="gaugeLabel"
+        [foregroundColor]="getGaugeColor()"
+        [backgroundColor]="'#e0e0e0'"
+        [size]="200">
+        </ngx-gauge>
+    </div>
+
+    <!-- Display Area -->
+    <div class="display-area">
+        <div *ngIf="isLoading" class="loading">Loading...</div>
+
+        <!-- Chat History -->
+        <div *ngIf="showChatHistory" class="chat-history">
+            <h3>Chat History</h3>
+            <div *ngFor="let message of chatHistory" class="message">
+                <strong>{{ message.role }}:</strong> {{ message.content }}
+            </div>
+        </div>
+
+        <!-- Generated Report -->
+        <div *ngIf="showReport" class="report">
+            <h3>Generated Report</h3>
+            <div [innerHTML]="reportContent"></div>
+        </div>
+    </div>
+
+    <h2>Sample Diagnostic Report Template</h2>
+
+    <div class="report-card">
+        <h3 class="report-title">📝 Complete Evaluation: Psychiatrist</h3>
+      
+        <div class="report-section">
+            <p><b>Date of Exam:</b> 2025-03-11</p>
+            <p><b>Time of Exam:</b> 10:45:22</p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>Patient Name and Age:</b> <span class="highlight">John Doe, Age 28</span></p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>History:</b> John has reported experiencing increased anxiety and difficulty sleeping over the past three months. He has a history of mild social anxiety but no prior psychiatric treatment.</p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>Current Symptoms:</b> Persistent restlessness, difficulty concentrating, occasional panic attacks, and disrupted sleep patterns.</p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>GAD-7 Score:</b> <span class="highlight">14 (Moderate Anxiety)</span></p>
+            <p><b>PHQ-9 Score:</b> <span class="highlight">10 (Moderate Depression)</span></p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>Detected Emotion:</b> <span class="highlight emotion">Anxious</span> (Based on tone and responses, patient exhibits signs of distress and concern about future events.)</p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>Past Psychiatric History:</b> No prior therapy or medication. Occasional feelings of nervousness in social settings.</p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>Suicidal/Self-Injurious:</b> <span class="highlight">Denies</span> suicidal thoughts or self-harm intentions at present.</p>
+        </div>
+      
+        <div class="report-section">
+            <p><b>Medical History:</b> No major medical conditions. Reports occasional migraines and a family history of hypertension.</p>
+        </div>
+    </div>
+</div>

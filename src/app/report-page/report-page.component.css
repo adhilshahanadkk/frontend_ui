@@ -1,0 +1,112 @@
+.report-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .button-container {
+    margin-bottom: 20px;
+  }
+  
+  .button-container button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  .display-area {
+    margin-top: 20px;
+  }
+  
+  .loading {
+    font-size: 18px;
+    color: #007bff;
+  }
+  
+  .chat-history, .report {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+
+  .report-card {
+    background-color: #f8f9fa;  /* Light gray background */
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .report-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+  }
+  
+  .report-section {
+    background-color: #ffffff;  /* White section background */
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: #e74c3c; /* Red for important values */
+  }
+  
+  .emotion {
+    color: #f39c12; /* Orange for emotions */
+  }
+  
+  .report-container {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+::ng-deep ngx-gauge .gauge-value {
+    display: none !important; /* Hides the numeric value */
+}
+
+::ng-deep ngx-gauge .gauge-label {
+    font-size: 24px !important; /* Adjust size for emoji + text */
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
