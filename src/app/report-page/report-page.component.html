@@ -1,91 +1,74 @@
 <div class="report-page">
-    <h2>Report Page</h2>
+    <!-- Header Section -->
+    <h2 class="page-title">📊 Report Page</h2>
 
-    <!-- Buttons for Chat History and Report Generation -->
+    <!-- Button Container -->
     <div class="button-container">
-        <button (click)="loadChatHistory()">Chat History</button>
-        <button (click)="generateReport()">Report Generation</button>
+        <button class="primary-btn" (click)="loadChatHistory()">💬 Chat History</button>
+        <button class="secondary-btn" (click)="generateReport()">📄 Generate Report</button>
     </div>
 
-    <!-- Emotion Speedometer -->
-    <div class="emotion-speedometer">
-        <h3>Emotion Analysis</h3>
-        <!-- [foregroundColor]="['#ff0000', '#ff9900', '#ffff00', '#00ff00']" -->
-
+    <!-- Emotion Analysis Section -->
+    <div class="card emotion-card">
+        <h3>💖 Emotion Analysis</h3>
         <ngx-gauge 
-        [value]="gaugeValue" 
-        [min]="0" 
-        [max]="100"
-        [type]="'semi'"
-        [cap]="'round'"
-        [thick]="10"
-        [label]="gaugeLabel"
-        [foregroundColor]="getGaugeColor()"
-        [backgroundColor]="'#e0e0e0'"
-        [size]="200">
+            [value]="gaugeValue" 
+            [min]="0" 
+            [max]="100"
+            [type]="'semi'"
+            [cap]="'round'"
+            [thick]="12"
+            [label]="gaugeLabel"
+            [foregroundColor]="getGaugeColor()"
+            [backgroundColor]="'#e0e0e0'"
+            [size]="200">
         </ngx-gauge>
+    </div>
+
+    <!-- Left-Right Image & Description Section -->
+    <div class="content-container">
+        <div class="image-card">
+            <img [src]="selectedImage.src" [alt]="selectedImage.alt" class="image">
+        </div>
+        <div class="description-card">
+            <h3>{{ selectedImage.title }}</h3>
+            <p>{{ selectedImage.description }}</p>
+            <p>{{ selectedImage.descriptions }}</p>
+        </div>
+    </div>
+
+    <!-- Information Cards Section -->
+    <div class="grid-container">
+        <div class="info-card">
+            <h3>Type 1</h3>
+            <p>Lessons that focus on developing foundational durable skills: self-awareness, self-appreciation, and self-acceptance – the bedrock for all other skills.</p>
+        </div>
+        <div class="info-card">
+            <h3>Type 2</h3>
+            <p>Lessons that shift participants from a "classroom" mindset to a workplace mindset that encourages confidence, critical thinking, and collaboration.</p>
+        </div>
+        <div class="info-card">
+            <h3>Type 3</h3>
+            <p>Specific durable skills lessons designed to quickly develop proactive, self-reliant, out-of-the-box thinkers who can contribute effectively.</p>
+        </div>
     </div>
 
     <!-- Display Area -->
     <div class="display-area">
-        <div *ngIf="isLoading" class="loading">Loading...</div>
+        <div *ngIf="isLoading" class="loading">⏳ Loading...</div>
 
         <!-- Chat History -->
-        <div *ngIf="showChatHistory" class="chat-history">
-            <h3>Chat History</h3>
+        <div *ngIf="showChatHistory" class="chat-history card">
+            <h3>💬 Chat History</h3>
             <div *ngFor="let message of chatHistory" class="message">
                 <strong>{{ message.role }}:</strong> {{ message.content }}
             </div>
         </div>
 
         <!-- Generated Report -->
-        <div *ngIf="showReport" class="report">
-            <h3>Generated Report</h3>
+        <div *ngIf="showReport" class="report card">
+            <h3>📄 Generated Report</h3>
             <div [innerHTML]="reportContent"></div>
-        </div>
-    </div>
-
-    <h2>Sample Diagnostic Report Template</h2>
-
-    <div class="report-card">
-        <h3 class="report-title">📝 Complete Evaluation: Psychiatrist</h3>
-      
-        <div class="report-section">
-            <p><b>Date of Exam:</b> 2025-03-11</p>
-            <p><b>Time of Exam:</b> 10:45:22</p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>Patient Name and Age:</b> <span class="highlight">John Doe, Age 28</span></p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>History:</b> John has reported experiencing increased anxiety and difficulty sleeping over the past three months. He has a history of mild social anxiety but no prior psychiatric treatment.</p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>Current Symptoms:</b> Persistent restlessness, difficulty concentrating, occasional panic attacks, and disrupted sleep patterns.</p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>GAD-7 Score:</b> <span class="highlight">14 (Moderate Anxiety)</span></p>
-            <p><b>PHQ-9 Score:</b> <span class="highlight">10 (Moderate Depression)</span></p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>Detected Emotion:</b> <span class="highlight emotion">Anxious</span> (Based on tone and responses, patient exhibits signs of distress and concern about future events.)</p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>Past Psychiatric History:</b> No prior therapy or medication. Occasional feelings of nervousness in social settings.</p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>Suicidal/Self-Injurious:</b> <span class="highlight">Denies</span> suicidal thoughts or self-harm intentions at present.</p>
-        </div>
-      
-        <div class="report-section">
-            <p><b>Medical History:</b> No major medical conditions. Reports occasional migraines and a family history of hypertension.</p>
         </div>
     </div>
 </div>

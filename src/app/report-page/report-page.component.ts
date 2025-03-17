@@ -180,12 +180,13 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NgxGaugeModule } from 'ngx-gauge';
+import { NgIf, NgFor, NgClass } from '@angular/common';
 import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-report-page',
   standalone: true,
-  imports: [CommonModule, NgxGaugeModule],
+  imports: [CommonModule, NgxGaugeModule, NgIf, NgFor, NgClass],
   templateUrl: './report-page.component.html',
   styleUrls: ['./report-page.component.css'],
   encapsulation: ViewEncapsulation.None,
@@ -209,6 +210,18 @@ export class ReportPageComponent implements OnInit {
     cap: 'round',
     label: (value: number) => `${value}% Emotional Intensity`
   };
+
+  selectedImage = {
+    src: 'assets/healthy.jpg',
+    alt: 'Anxiety',
+    title: 'Your Sage for Holistic Mental Clarity and Well-Being',
+    description: 'At MindSage, we understand that life’s challenges—whether it’s severe emotional distress, mental breakdowns, or the lingering effects of trauma—can often feel insurmountable. That’s why we focus on reconnecting individuals with themselves through a holistic mental health approach. Our philosophy blends mindfulness, introspection, and self-acceptance with cutting-edge technology to provide accessible mental health care to anyone, anywhere.',
+    descriptions:'We’re dedicated to providing personalized care with a non-judgmental attitude, creating a safe space where you can explore and address the complexities of your emotions and mental health.'
+  };
+
+  getGaugeColor(): string {
+    return this.gaugeValue < 30 ? '#00ff00' : this.gaugeValue < 70 ? '#ff9900' : '#ff0000';
+  }
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
@@ -265,12 +278,6 @@ export class ReportPageComponent implements OnInit {
   //   this.gaugeLabel = emotionData.label;
   // }
 
-  getGaugeColor(): string {
-    if (this.gaugeValue < 30) return "#ff0000";  // Red for negative emotions
-    if (this.gaugeValue < 50) return "#ff9900";  // Orange for mild negativity
-    if (this.gaugeValue < 70) return "#ffff00";  // Yellow for neutral
-    return "#00ff00";  // Green for positive emotions
-  }
 
   // 🎯 Convert Multiple Emotions to Gauge Value
   // updateGaugeValue() {

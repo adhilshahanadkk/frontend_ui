@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -38,5 +39,11 @@ export class HeaderComponent {
     if (window.innerWidth <= 768) { // Only for mobile
       this.activeDropdown = this.activeDropdown === menu ? null : menu;
     }
+  }
+
+  constructor(private router: Router) {}
+
+  reportgenerator() {
+    this.router.navigate(['/report-generator']);
   }
 }
